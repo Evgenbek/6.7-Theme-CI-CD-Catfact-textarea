@@ -1,5 +1,5 @@
 import { stringTemplateEngine, TemplateBlock } from '../../lib/string-template-engine';
-// import { TemplateBlock } from '../../types/TemplateEngine'; если типы в отдельной папке как делал САша
+// import { TemplateBlock } from '../../types/TemplateEngine'; если типы в отдельной папке
 type LimitTextareaOptions = {
   limit: number;
   defaultText?: string;
