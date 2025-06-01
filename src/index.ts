@@ -10,7 +10,7 @@ type CatFact = {
   fact: string;
 };
 
-fetch ('https://catfact.ninja/fact')
+fetch('https://catfact.ninja/fact')
   .then((response) => response.json())
   .then((fact: CatFact) => {
     limitTextarea(
