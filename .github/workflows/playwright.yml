@@ -1,0 +1,33 @@
+name: Playwright
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  playwright: 
+      
+    runs-on: ubuntu-latest
+
+    container: mcr.microsoft.com/playwright:v1.52.0-noble
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js 18
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install   
+      run: |
+        npm ci
+
+    - name: Playwright
+      run: HOME=/root npx playwright test
+    - uses:  actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
