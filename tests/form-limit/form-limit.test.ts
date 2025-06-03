@@ -16,7 +16,7 @@ test('form loading', async ({ page }) => {
   await expect(limitTextareaButton).toBeVisible();
 
   await expect(limitTextareaControl).toHaveText('Hello, user! A cat’s back is extremely flexible because it has up to 53 loosely fitting vertebrae. Humans only have 34.');
-  await expect(limitTextareaLeft).toHaveText('Вы превысили лимит');
+  await expect(limitTextareaLeft).toHaveText('Вы превысили лимит в 100 символов');
 
   await expect(limitTextarea).toHaveScreenshot('plain.png');
 
@@ -36,7 +36,7 @@ test('form empty', async ({ page }) => {
   await limitTextareaControl.fill('');
 
   await expect(limitTextareaControl).toHaveValue('');
-  await expect(limitTextareaLeft).toHaveText('Осталось 100 символов');
+  await expect(limitTextareaLeft).toHaveText('Осталось 100 символов из 100');
 });
 
 test('form fill with value', async ({ page }) => {
@@ -51,7 +51,7 @@ test('form fill with value', async ({ page }) => {
   await limitTextareaControl.fill('dusty test value dusty test value');
 
   await expect(limitTextareaControl).toHaveValue('dusty test value dusty test value');
-  await expect(limitTextareaLeft).toHaveText('Осталось 67 символов');
+  await expect(limitTextareaLeft).toHaveText('Осталось 67 символов из 100');
 });
 
 test('form block on too much content', async ({ page }) => {
@@ -67,6 +67,6 @@ test('form block on too much content', async ({ page }) => {
   await limitTextareaControl.fill('dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value');
 
   await expect(limitTextareaControl).toHaveValue('dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value dusty test value');
-  await expect(limitTextareaLeft).toHaveText('Вы превысили лимит');
+  await expect(limitTextareaLeft).toHaveText('Вы превысили лимит в 100 символов');
   await expect(limitTextareaButton).toBeDisabled();
 });

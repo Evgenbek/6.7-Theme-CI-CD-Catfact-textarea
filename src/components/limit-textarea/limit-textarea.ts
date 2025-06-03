@@ -6,7 +6,9 @@ type LimitTextareaOptions = {
   onSubmit: (value: string) => void;
 };
 
-const leftContent = (limit: number, content: string) => (limit < content.length ? 'Вы превысили лимит' : `Осталось ${limit - content.length} символов`);
+const leftContent = (limit: number, content: string) => (
+  limit < content.length ? `Вы превысили лимит в ${limit} символов` : `Осталось ${limit - content.length} символов из ${limit}`
+);
 
 const limitTextareaTemplate: (limit: number, content?: string) => TemplateBlock = (limit, content = '') => ({
   block: 'div',
