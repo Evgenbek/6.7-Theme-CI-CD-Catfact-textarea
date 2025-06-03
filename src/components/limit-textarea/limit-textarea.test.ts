@@ -40,7 +40,7 @@ test('render limit-textarea', () => {
       {
         block: 'div',
         cls: 'limit-textarea__left',
-        content: 'Осталось 6 символов',
+        content: 'Осталось 6 символов из 10',
       },
       {
         block: 'button',
